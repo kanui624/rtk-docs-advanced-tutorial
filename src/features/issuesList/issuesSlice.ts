@@ -22,11 +22,11 @@ const issuesInitialState: IssuesState = {
   error: null
 }
 
-function startLoading(state: IssuesState) {
+const startLoading = (state: IssuesState) => {
   state.isLoading = true
 }
 
-function loadingFailed(state: IssuesState, action: PayloadAction<string>) {
+const loadingFailed = (state: IssuesState, action: PayloadAction<string>) => {
   state.isLoading = false
   state.error = action.payload
 }
