@@ -15,16 +15,19 @@ import {
 
 import './App.css'
 
-type CurrentDisplay =
-  | {
-      type: 'issues'
-    }
-  | {
-      type: 'comments'
-      issueId: number
-    }
+// const ORG = 'rails'
+// const REPO = 'rails'
+
+type CurrentDisplay = { type: 'issues' } | { type: 'comments'; issueId: number }
 
 const App: React.FC = () => {
+  // const [org, setOrg] = useState(ORG)
+  // const [repo, setRepo] = useState(REPO)
+  // const [page, setPage] = useState(1)
+  // const [currentDisplay, setCurrentDisplay] = useState<CurrentDisplay>({
+  //   type: 'issues'
+  // })
+
   const dispatch = useDispatch()
 
   const { org, repo, displayType, page, issueId } = useSelector(
@@ -32,18 +35,23 @@ const App: React.FC = () => {
   )
 
   const setOrgAndRepo = (org: string, repo: string) => {
+    // setOrg(org)
+    // setRepo(repo)
     dispatch(displayRepo({ org, repo }))
   }
 
   const setJumpToPage = (page: number) => {
+    // setPage(page)
     dispatch(setCurrentPage(page))
   }
 
   const showIssuesList = () => {
+    // setCurrentDisplay({ type: 'issues' })
     dispatch(setCurrentDisplayType({ displayType: 'issues' }))
   }
 
   const showIssueComments = (issueId: number) => {
+    // setCurrentDisplay({ type: 'comments', issueId })
     dispatch(setCurrentDisplayType({ displayType: 'comments', issueId }))
   }
 
