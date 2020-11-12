@@ -1,5 +1,5 @@
 // import React, { useState, useEffect } from 'react'
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 // import { getIssues, getRepoDetails, IssuesResult } from 'api/githubAPI'
