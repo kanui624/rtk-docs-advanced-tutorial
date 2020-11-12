@@ -5,7 +5,9 @@ import { Provider } from 'react-redux'
 import store from './app/store'
 
 import './index.css'
+// import App from './app/App'
 
+// ReactDOM.render(<App />, document.getElementById('root'))
 const render = () => {
   const App = require('./app/App').default
 

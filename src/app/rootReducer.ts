@@ -1,6 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit'
 
-const rootReducer = combineReducers({})
+// const rootReducer = combineReducers({})
+import issuesDisplayReducer from 'features/issuesDisplay/issuesDisplaySlice'
+
+const rootReducer = combineReducers({
+  issuesDisplay: issuesDisplayReducer
+})
 
 export type RootState = ReturnType<typeof rootReducer>
 
