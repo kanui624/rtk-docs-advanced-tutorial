@@ -40,10 +40,12 @@ export const fetchIssuesCount = (
   org: string,
   repo: string
 ): AppThunk => async dispatch => {
+  let repoDetails
   try {
-    const repoDetails = await getRepoDetails(org, repo)
-    dispatch(getRepoDetailsSuccess(repoDetails))
+    repoDetails = await getRepoDetails(org, repo)
   } catch (err) {
     dispatch(getRepoDetailsFailed(err.toString()))
+    return
   }
+  dispatch(getRepoDetailsSuccess(repoDetails))
 }
