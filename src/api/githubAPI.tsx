@@ -64,11 +64,11 @@ const getPageCount = (pageLinks: Links) => {
   }
 }
 
-export async function getIssues(
+export const getIssues = async (
   org: string,
   repo: string,
   page = 1
-): Promise<IssuesResult> {
+): Promise<IssuesResult> => {
   const url = `https://api.github.com/repos/${org}/${repo}/issues?per_page=25&page=${page}`
 
   try {
@@ -90,21 +90,21 @@ export async function getIssues(
   }
 }
 
-export async function getRepoDetails(org: string, repo: string) {
+export const getRepoDetails = async (org: string, repo: string) => {
   const url = `https://api.github.com/repos/${org}/${repo}`
 
   const { data } = await axios.get<RepoDetails>(url)
   return data
 }
 
-export async function getIssue(org: string, repo: string, number: number) {
+export const getIssue = async (org: string, repo: string, number: number) => {
   const url = `https://api.github.com/repos/${org}/${repo}/issues/${number}`
 
   const { data } = await axios.get<Issue>(url)
   return data
 }
 
-export async function getComments(url: string) {
+export const getComments = async (url: string) => {
   const { data } = await axios.get<Comment[]>(url)
   return data
 }
